@@ -1,96 +1,81 @@
 package com.mrtkrkrt.housetypes.service;
 
 import com.mrtkrkrt.housetypes.dto.House;
-import com.mrtkrkrt.housetypes.dto.IStructure;
+import com.mrtkrkrt.housetypes.dto.Structure;
 import com.mrtkrkrt.housetypes.dto.Summery;
 import com.mrtkrkrt.housetypes.dto.Villa;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class StructureService{
     // TODO List house yerine lilst structure ordan house olanları filtrele?
-    public static int sumOfHousePrices(List<IStructure> iStructures) {
+    public static int sumOfHousePrices(List<House> houseList) {
         int sum = 0;
-        for(IStructure structure: iStructures) {
-            if (structure.getClass() == House.class) {
-                sum += structure.getPrice();
-            }
+        for(House house: houseList) {
+           sum += house.getPrice();
         }
         return sum;
     }
 
-    public static int sumOfVillaPrices(List<IStructure> structures) {
+    public static int sumOfVillaPrices(List<Villa> villaList) {
         int sum = 0;
-        for(IStructure structure: structures) {
-            if (structure.getClass() == Villa.class) {
-                sum += structure.getPrice();
-            }
+        for(Villa villa: villaList) {
+            sum += villa.getPrice();
         }
         return sum;
     }
 
-    public static int sumOfSummeryPrices(List<IStructure> iStructures) {
+    public static int sumOfSummeryPrices(List<Summery> summeryList) {
         int sum = 0;
-        for(IStructure structure: iStructures) {
-            if (structure.getClass() == Summery.class) {
-                sum += structure.getPrice();
-            }
+        for(Summery summery: summeryList) {
+            sum += summery.getPrice();
         }
         return sum;
     }
 
-    public static int sumOfAllStructurePrices(List<IStructure> structures) {
+    public static int sumOfAllStructurePrices(List<Structure> structureList) {
         int sum = 0;
-        for(IStructure iStructure: structures) {
-            sum += iStructure.getPrice();
+        for(Structure structure: structureList) {
+            sum += structure.getPrice();
         }
         return sum;
     }
 
-    public static double averageSquareMetersOfHouses(List<IStructure> structures) {
-        int sum = 0;
-        int houseCount = 0;
-        for(IStructure structure: structures) {
-            if (structure.getClass() == House.class) {
-                sum += structure.getSquareMeters();
-                houseCount += 1;
-            }
+    public static double averageSquareMetersOfHouses(List<House> houseList) {
+        double sum = 0;
+        for(House house: houseList) {
+            sum += house.getSquareMeters();
         }
-        return sum / houseCount;
+        return sum / houseList.size();
     }
 
-    public static double averageSquareMetersOfVillas(List<IStructure> structures) {
-        int sum = 0;
-        int villaCount = 0;
-        for(IStructure structure: structures) {
-            if (structure.getClass() == Villa.class) {
-                sum += structure.getSquareMeters();
-                villaCount += 1;
-            }
+    public static double averageSquareMetersOfVillas(List<Villa> villaList) {
+        double sum = 0;
+        for(Villa villa: villaList) {
+            sum += villa.getSquareMeters();
         }
-        return sum / villaCount;
+        return sum / villaList.size();
     }
 
-    public static double averageSquareMetersOfSummeries(List<IStructure> structures) {
-        int sum = 0;
-        int summeryCount = 0;
-        for(IStructure structure: structures) {
-            if (structure.getClass() == Summery.class) {
-                sum += structure.getSquareMeters();
-                summeryCount += 1;
-            }
+    public static double averageSquareMetersOfSummeries(List<Summery> summeryList) {
+        double sum = 0;
+        for(Summery summery: summeryList) {
+            sum += summery.getSquareMeters();
         }
-        return sum / summeryCount;
+        return sum / summeryList.size();
     }
 
-    public static double averageSquareMetersOfAllStructures(List<IStructure> iStructures) {
-        int sum = 0;
-        for(IStructure iStructure: iStructures) {
-            sum += iStructure.getSquareMeters();
+    public static double averageSquareMetersOfAllStructures(List<Structure> structureList) {
+        double sum = 0;
+        for(Structure structure: structureList) {
+            sum += structure.getSquareMeters();
         }
 
-        return sum / iStructures.size();
+        return sum / structureList.size();
     }
 
-
+    public static Map<String, List<Structure>> filterStructuresByTypes(List<Structure> structureList) {
+        return new HashMap<>();
+    }
 }
