@@ -7,7 +7,7 @@ import com.mrtkrkrt.housetypes.service.StructureService;
 import java.util.List;
 import java.util.Map;
 
-public class HousetypesApplication {
+public class Main {
 
 	public static void main(String[] args) {
 		DataService.createStructures();
