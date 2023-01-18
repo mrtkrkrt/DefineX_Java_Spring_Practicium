@@ -1,9 +1,9 @@
 package com.mrtkrkrt.housetypes.service;
 
-import com.mrtkrkrt.housetypes.dto.House;
-import com.mrtkrkrt.housetypes.dto.Structure;
-import com.mrtkrkrt.housetypes.dto.Summery;
-import com.mrtkrkrt.housetypes.dto.Villa;
+import com.mrtkrkrt.housetypes.data.House;
+import com.mrtkrkrt.housetypes.data.Structure;
+import com.mrtkrkrt.housetypes.data.Summery;
+import com.mrtkrkrt.housetypes.data.Villa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class DataService {
 
     private static final List<Structure> structureList = new ArrayList<>();
 
-    private static void createStructures() {
+    public static void createStructures() {
         Structure house1 = new House(35000, 85, "3+1");
         Structure house2 = new House(40000, 90, "2+1");
         Structure house3 = new House(45000, 95, "1+1");
@@ -23,7 +23,7 @@ public class DataService {
 
         Structure villa1 = new Villa(55000, 85, "5+1");
         Structure villa2 = new Villa(75000, 55, "3+1");
-        Structure villa3 = new Villa(105000, 105, "8+2");
+        Structure villa3 = new Villa(105000, 105, "4+1");
 
         structureList.add(villa1);
         structureList.add(villa2);
@@ -39,12 +39,10 @@ public class DataService {
     }
 
     public static List<Structure> getStructureList() {
-        createStructures();
         return structureList;
     }
 
     public static List<House> getHouseList() {
-        createStructures();
         List<House> houseList = new ArrayList<>();
 
         for(Structure structure: structureList) {
@@ -57,7 +55,6 @@ public class DataService {
     }
 
     public static List<Villa> getVillaList() {
-        createStructures();
         List<Villa> villaList = new ArrayList<>();
 
         for (Structure structure: structureList) {
@@ -70,7 +67,6 @@ public class DataService {
     }
 
     public static List<Summery> getSummeryList() {
-        createStructures();
         List<Summery> summeryList = new ArrayList<>();
 
         for (Structure structure: structureList) {

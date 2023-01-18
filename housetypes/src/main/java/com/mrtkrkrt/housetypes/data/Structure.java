@@ -1,4 +1,4 @@
-package com.mrtkrkrt.housetypes.dto;
+package com.mrtkrkrt.housetypes.data;
 
 public abstract class Structure {
     private int price;
@@ -33,5 +33,14 @@ public abstract class Structure {
 
     public void setStructureType(String structureType) {
         this.structureType = structureType;
+    }
+
+    @Override
+    public String toString() {
+        return "Structure{" +
+                "price=" + price +
+                ", squareMeters=" + squareMeters +
+                ", structureType='" + structureType + '\'' +
+                '}';
     }
 }

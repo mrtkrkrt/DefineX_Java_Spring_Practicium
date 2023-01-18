@@ -1,12 +1,11 @@
 package com.mrtkrkrt.housetypes.service;
 
-import com.mrtkrkrt.housetypes.dto.House;
-import com.mrtkrkrt.housetypes.dto.Structure;
-import com.mrtkrkrt.housetypes.dto.Summery;
-import com.mrtkrkrt.housetypes.dto.Villa;
+import com.mrtkrkrt.housetypes.data.House;
+import com.mrtkrkrt.housetypes.data.Structure;
+import com.mrtkrkrt.housetypes.data.Summery;
+import com.mrtkrkrt.housetypes.data.Villa;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class StructureService{
     // TODO List house yerine lilst structure ordan house olanları filtrele?
@@ -76,6 +75,23 @@ public class StructureService{
     }
 
     public static Map<String, List<Structure>> filterStructuresByTypes(List<Structure> structureList) {
-        return new HashMap<>();
+        Map<String, List<Structure>> groupByTypes = new HashMap<>();
+        Set<String> typesSet = new HashSet<>();
+
+        for(Structure structure: structureList) {
+            typesSet.add(structure.getStructureType());
+        }
+
+        for (String type: typesSet) {
+            List<Structure> temp = new ArrayList<>();
+            for(Structure structure: structureList) {
+                if (structure.getStructureType().equals(type)) {
+                    temp.add(structure);
+                }
+            }
+            groupByTypes.put(type, temp);
+        }
+
+        return groupByTypes;
     }
 }
