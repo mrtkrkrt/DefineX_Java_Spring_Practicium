@@ -12,6 +12,7 @@ public class DataService {
 
     private static final List<Structure> structureList = new ArrayList<>();
 
+    // Create all structure objects and add to the list;
     public static void createStructures() {
         Structure house1 = new House(35000, 85, "3+1");
         Structure house2 = new House(40000, 90, "2+1");
@@ -42,6 +43,8 @@ public class DataService {
         return structureList;
     }
 
+
+    // Extract House objects from all structure objects and return as a list
     public static List<House> getHouseList() {
         List<House> houseList = new ArrayList<>();
 
@@ -54,6 +57,7 @@ public class DataService {
         return houseList;
     }
 
+    // Extract Villa objects from all structure objects and return as a list
     public static List<Villa> getVillaList() {
         List<Villa> villaList = new ArrayList<>();
 
@@ -66,6 +70,7 @@ public class DataService {
         return villaList;
     }
 
+    // Extract Summery objects from all structure objects and return as a list
     public static List<Summery> getSummeryList() {
         List<Summery> summeryList = new ArrayList<>();
 

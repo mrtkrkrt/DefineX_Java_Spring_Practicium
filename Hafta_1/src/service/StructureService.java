@@ -8,7 +8,8 @@ import data.Villa;
 import java.util.*;
 
 public class StructureService{
-    // TODO List house yerine lilst structure ordan house olanları filtrele?
+
+    // Return sum price of house list
     public static int sumOfHousePrices(List<House> houseList) {
         int sum = 0;
         for(House house: houseList) {
@@ -17,6 +18,7 @@ public class StructureService{
         return sum;
     }
 
+    // Return sum price of villa list
     public static int sumOfVillaPrices(List<Villa> villaList) {
         int sum = 0;
         for(Villa villa: villaList) {
@@ -25,6 +27,7 @@ public class StructureService{
         return sum;
     }
 
+    // Return sum price of summery list
     public static int sumOfSummeryPrices(List<Summery> summeryList) {
         int sum = 0;
         for(Summery summery: summeryList) {
@@ -33,6 +36,7 @@ public class StructureService{
         return sum;
     }
 
+    // Return sum price of all structures
     public static int sumOfAllStructurePrices(List<Structure> structureList) {
         int sum = 0;
         for(Structure structure: structureList) {
@@ -41,6 +45,8 @@ public class StructureService{
         return sum;
     }
 
+
+    // Return average Squaremeter of Houses
     public static double averageSquareMetersOfHouses(List<House> houseList) {
         double sum = 0;
         for(House house: houseList) {
@@ -49,6 +55,7 @@ public class StructureService{
         return sum / houseList.size();
     }
 
+    // Return average Squaremeter of Villas
     public static double averageSquareMetersOfVillas(List<Villa> villaList) {
         double sum = 0;
         for(Villa villa: villaList) {
@@ -57,6 +64,7 @@ public class StructureService{
         return sum / villaList.size();
     }
 
+    // Return average Squaremeter of Summeries
     public static double averageSquareMetersOfSummeries(List<Summery> summeryList) {
         double sum = 0;
         for(Summery summery: summeryList) {
@@ -65,6 +73,7 @@ public class StructureService{
         return sum / summeryList.size();
     }
 
+    // Return average Squaremeter of all structures
     public static double averageSquareMetersOfAllStructures(List<Structure> structureList) {
         double sum = 0;
         for(Structure structure: structureList) {
@@ -74,6 +83,7 @@ public class StructureService{
         return sum / structureList.size();
     }
 
+    // Filter all structures and group on list by structure types
     public static Map<String, List<Structure>> filterStructuresByTypes(List<Structure> structureList) {
         Map<String, List<Structure>> groupByTypes = new HashMap<>();
         Set<String> typesSet = new HashSet<>();
