@@ -79,7 +79,6 @@ public class StructureService{
         for(Structure structure: structureList) {
             sum += structure.getSquareMeters();
         }
-
         return sum / structureList.size();
     }
 
